@@ -21,8 +21,15 @@ export default function ContactPage() {
       })
 
       if (!res.ok) {
-        const data = await res.json()
-        throw new Error(data.error || "Something went wrong")
+        let errorMsg = "Something went wrong"
+        try {
+          const text = await res.text()
+          const data = text ? JSON.parse(text) : {}
+          errorMsg = data.error || errorMsg
+        } catch (e) {
+          console.error("Failed to parse error response")
+        }
+        throw new Error(errorMsg)
       }
 
       setStatus("success")
