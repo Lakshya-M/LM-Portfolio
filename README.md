@@ -1,149 +1,99 @@
 <div align="center">
-```
-██╗     ███╗   ███╗    ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗
-██║     ████╗ ████║    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗
-██║     ██╔████╔██║    ██████╔╝██║   ██║██████╔╝   ██║   █████╗  ██║   ██║██║     ██║██║   ██║
-██║     ██║╚██╔╝██║    ██╔═══╝ ██║   ██║██╔══██╗   ██║   ██╔══╝  ██║   ██║██║     ██║██║   ██║
-███████╗██║ ╚═╝ ██║    ██║     ╚██████╔╝██║  ██║   ██║   ██║     ╚██████╔╝███████╗██║╚██████╔╝
-╚══════╝╚═╝     ╚═╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝
-```
 
-<br/>
+<p align="center">
+  <samp style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8b89a;">Portfolio · v2026</samp>
+</p>
 
-### `Engineer · Photographer · Builder`
+# LM<br>_Portfolio_
 
-<br/>
+<p align="center">
+  <samp style="font-size: 11px; color: #888; letter-spacing: 0.1em;">Next.js · Vercel</samp><br>
+  <a href="https://lm-portfolio-nu.vercel.app"><img src="https://img.shields.io/badge/Live-Demo-c8b89a?style=flat-square&color=202020&labelColor=1a1a1a&logoColor=c8b89a" alt="Live Demo"></a>
+  <img src="https://img.shields.io/badge/License-MIT-c8b89a?style=flat-square&color=202020&labelColor=1a1a1a" alt="MIT License">
+  <img src="https://img.shields.io/badge/Version-v2026-c8b89a?style=flat-square&color=202020&labelColor=1a1a1a" alt="Version 2026">
+</p>
 
-[![Live](https://img.shields.io/badge/LIVE-lm--portfolio-c8b89a?style=flat-square&labelColor=0a0a0a)](https://lm-portfolio-nu.vercel.app)
-[![Next.js](https://img.shields.io/badge/Next.js-15-white?style=flat-square&labelColor=0a0a0a)](https://nextjs.org)
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-white?style=flat-square&labelColor=0a0a0a&logo=vercel)](https://vercel.com)
-[![License](https://img.shields.io/badge/License-MIT-white?style=flat-square&labelColor=0a0a0a)](LICENSE)
+<br>
 
-<br/>
+> _Every frame is a decision —_ **and every build, an intention.**
 
-> *Every frame is a decision. Every build, an intention.*
-
-<br/>
-
+<br>
 </div>
+
+## ✦ ABOUT
+### Two identities. One portfolio.
+The personal portfolio of Lakshya Mehta — engineer by day, photographer by dark. Built to house two distinct worlds: hardware-meets-cloud engineering projects, and a growing archive of concert and live event photography. Clean. Fast. Intentional.
+
+## ✦ STACK
+### Built with precision.
+Deployed on Vercel. Zero-config CI/CD. Optimised images via Next.js.
+`Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Vercel` · `next/image` · `next/font`
 
 ---
 
-<br/>
+## ✦ CAPABILITIES
 
-## ◈ &nbsp;Overview
+#### `01` Dual-profile architecture
+Separate routes for Engineering and Photography — each with its own identity and navigation.
 
-The personal portfolio of **Lakshya Mehta** — a dual-identity site built to live at the intersection of engineering and visual art. Two worlds. One address.
+#### `02` Photography-first gallery
+Optimised image delivery with Next.js. Concert, street, events — categorised and expandable.
 
-| Profile | Focus |
-|---|---|
-| 🔧 &nbsp;**Engineer** | IoT · Embedded Systems · Cloud · ML |
-| 📷 &nbsp;**Photographer** | Concert · Live Events · Street · Artists |
+#### `03` IoT & cloud projects
+Smart irrigation, digital twins, solar vehicle monitoring — each with problem, solution, and stack.
 
-<br/>
+---
 
-## ◈ &nbsp;Stack
-```
-Framework     →  Next.js 15 (App Router)
-Language      →  TypeScript
-Styling       →  Tailwind CSS
-Images        →  next/image  (optimised delivery)
-Fonts         →  next/font   (zero layout shift)
-Deployment    →  Vercel      (auto CI/CD on push)
-```
+## ✦ QUICK START
 
-<br/>
-
-## ◈ &nbsp;Quick Start
 ```bash
-# clone
-git clone https://github.com/Lakshya-M/lm-portfolio.git
-cd lm-portfolio
+# clone the repo
+git clone https://github.com/Lakshya-M/LM-Portfolio-.git
+cd LM-Portfolio-/my-portfolio
 
-# install
+# install dependencies
 npm install
 
-# dev server → localhost:3000
+# run dev server
 npm run dev
 
-# production build
+# build for production
 npm run build && npm start
 ```
 
-<br/>
+---
 
-## ◈ &nbsp;Project Structure
-```
-lm-portfolio/
-│
-├── app/
-│   ├── page.tsx              ← landing — split identity
-│   ├── engineer/
-│   │   └── page.tsx          ← IoT, embedded, cloud projects
-│   ├── photography/
-│   │   └── page.tsx          ← concert, street, events gallery
-│   └── contact/
-│       └── page.tsx          ← get in touch
-│
-├── public/
-│   └── images/               ← optimised via next/image
-│
-└── components/               ← shared UI components
-```
+## ✦ BY THE NUMBERS
 
-<br/>
-
-## ◈ &nbsp;Engineering Projects
-
-| Project | Problem | Stack |
-|---|---|---|
-| **Smart Irrigation System** | Water wastage in manual farming | ESP32 · Firebase · MQTT · OpenWeatherMap |
-| **Solar-Powered Smart Vehicle** | Undetected solar vehicle degradation | LSTM · Python · Bluetooth · Microcontrollers |
-| **Digital Twin Building Monitor** | Lack of real-time fault detection | ESP32 · IoT Sensors · ML · REST API |
-
-<br/>
-
-## ◈ &nbsp;Photography
-```
-Concert & Live Events  →  10+ artists covered and growing
-Artists                →  Solo performer portraits  
-Street                 →  Candid, unposed, unfiltered
-General Events         →  Festivals · college events · gatherings
-Product                →  Clean, intentional brand visuals
-```
-
-<br/>
-
-## ◈ &nbsp;Stats
-```
-10+   Artists covered
- VP   Photography Club — VIT Chennai
-  3   IoT / Cloud projects
-  2   Cities — Delhi & Chennai
-```
-
-<br/>
-
-## ◈ &nbsp;Certifications
-
-| Certification | Issuer | Year |
-|---|---|---|
-| Azure AI Engineer Associate | Microsoft | 2025 |
-| Data Analytics Virtual Program | Deloitte | 2025 |
-| Cyber Security Virtual Program | Deloitte | 2025 |
-
-<br/>
+| 🎙️ Artists covered | 🔌 IoT projects | 📷 Photo club | 🏙️ Cities |
+| :---: | :---: | :---: | :---: |
+| **10+** | **3** | **VP** | **2x** (Delhi & Chennai) |
 
 ---
 
-<br/>
+## ✦ STRUCTURE
+
+```text
+lm-portfolio/
+├─ app/
+│  ├─ page.tsx          # landing — split identity
+│  ├─ engineer/         # IoT · embedded · cloud
+│  ├─ photography/      # concert · street · events
+│  └─ contact/
+├─ public/images/       # optimised via next/image
+└─ components/          # shared UI
+```
+
+---
+
+<br>
 
 <div align="center">
-
-**[Live Site](https://lm-portfolio-nu.vercel.app)** &nbsp;·&nbsp; **[Photography](https://lm-portfolio-nu.vercel.app/photography)** &nbsp;·&nbsp; **[Engineer](https://lm-portfolio-nu.vercel.app/engineer)** &nbsp;·&nbsp; **[Contact](https://lm-portfolio-nu.vercel.app/contact)**
-
-<br/>
-
-*© 2026 Lakshya Mehta*
-
+  <p><i>— Lakshya Mehta, 2026</i></p>
+  <p>
+    <a href="https://lm-portfolio-nu.vercel.app">Live Site</a> &nbsp;·&nbsp;
+    <a href="https://lm-portfolio-nu.vercel.app/photography">Photography</a> &nbsp;·&nbsp;
+    <a href="https://lm-portfolio-nu.vercel.app/engineer">Engineer</a> &nbsp;·&nbsp;
+    <a href="https://lm-portfolio-nu.vercel.app/contact">Contact</a>
+  </p>
 </div>
