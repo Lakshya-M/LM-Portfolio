@@ -14,25 +14,26 @@ export default function ContactPage() {
     setErrorMsg("")
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "7e7938d0-d08a-4a8b-9c3f-94be2b947947",
+          ...form,
+        }),
       })
 
-      if (!res.ok) {
-        let errorMsg = "Something went wrong"
-        try {
-          const text = await res.text()
-          const data = text ? JSON.parse(text) : {}
-          errorMsg = data.error || errorMsg
-        } catch (e) {
-          console.error("Failed to parse error response")
-        }
-        throw new Error(errorMsg)
+      const data = await res.json()
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to send message")
       }
 
       setStatus("success")
+      setForm({ name: "", email: "", message: "" })
     } catch (err) {
       setStatus("error")
       setErrorMsg(err instanceof Error ? err.message : "Failed to send message")
