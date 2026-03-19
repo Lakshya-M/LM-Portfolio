@@ -48,19 +48,19 @@ export default function LandingPage() {
       <div
         className={`relative z-10 flex flex-col items-center justify-center flex-1 px-6 transition-all duration-1000 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
       >
-        <p className="text-[#888] text-xs tracking-[0.3em] uppercase mb-4 font-light">Welcome to</p>
         <h1
-          className="text-white font-bold tracking-tight text-center mb-3 leading-none"
+          className="text-white font-bold tracking-tight text-center mb-6 leading-[1.1]"
           style={{
             fontFamily: "var(--font-bebas), 'Impact', sans-serif",
             letterSpacing: "0.05em",
-            fontSize: "clamp(4rem, 12vw, 9rem)",
+            fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
+            maxWidth: "900px",
           }}
         >
-          Lakshya Mehta
+          FOR THOSE WHO DONT SETTLE FOR ORDINARY
         </h1>
-        <p className="text-[#555] text-sm tracking-[0.2em] uppercase mb-16">Engineer · Photographer</p>
-
+        <p className="text-[#aaa] text-sm font-medium tracking-[0.3em] uppercase mb-8 text-center">CLICK PROFILE TO EXPLORE</p>
+        
         <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl">
           <ProfileCard href="/engineer" label="Engineer" description="IoT · Embedded · Cloud" accent="#e50914" delay={200} loaded={loaded} />
           <ProfileCard
