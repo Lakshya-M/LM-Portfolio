@@ -74,7 +74,7 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <Footer />
+      <Footer isLanding={true} />
     </main>
   )
 }
@@ -118,7 +118,7 @@ function ProfileCard({
             </div>
           ) : (
             <div className="relative w-[90%] h-full flex items-center justify-center">
-              <Image src="/images/logo-white.png" alt="LM Visuals" width={240} height={240} className="object-contain opacity-70" />
+              <Image src="/images/Logo_New.png" alt="LM Visuals" width={240} height={240} className="object-contain opacity-70" />
             </div>
           )}
         </div>

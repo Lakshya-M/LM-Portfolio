@@ -1,9 +1,13 @@
 import Link from "next/link"
+import { SiBehance } from "react-icons/si"
 
-export default function Footer() {
+export default function Footer({ isLanding = false }: { isLanding?: boolean }) {
+  const bgClass = isLanding ? "bg-transparent" : "bg-[#0a0a0a]"
+  const copyColor = isLanding ? "text-[#888]" : "text-[#444]"
+  const linkColor = isLanding ? "text-[#aaa] hover:text-white" : "text-[#666] hover:text-white"
+
   return (
-    <footer className="w-full bg-[#0a0a0a] pt-0 pb-8 px-8">
-      {/* Gradient accent line */}
+    <footer className={`relative z-20 w-full ${bgClass} pt-0 pb-8 px-8`}>
       <div
         className="w-full h-px mb-8"
         style={{
@@ -12,23 +16,23 @@ export default function Footer() {
         }}
       />
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-[#444] text-xs tracking-widest uppercase">© 2026 Lakshya Mehta</p>
+        <p className={`${copyColor} text-xs tracking-widest uppercase`}>© 2026 Lakshya Mehta</p>
         <div className="flex items-center gap-8">
           <Link
             href="/contact"
-            className="text-[#666] hover:text-white text-xs tracking-widest uppercase transition-colors duration-200"
+            className={`${linkColor} text-xs tracking-widest uppercase transition-colors duration-200`}
           >
             Contact Me
           </Link>
           <Link
             href="/engineer"
-            className="text-[#666] hover:text-white text-xs tracking-widest uppercase transition-colors duration-200"
+            className={`${linkColor} text-xs tracking-widest uppercase transition-colors duration-200`}
           >
             Engineer
           </Link>
           <Link
             href="/photography"
-            className="text-[#666] hover:text-white text-xs tracking-widest uppercase transition-colors duration-200"
+            className={`${linkColor} text-xs tracking-widest uppercase transition-colors duration-200`}
           >
             Photography
           </Link>
@@ -38,7 +42,7 @@ export default function Footer() {
             href="https://linkedin.com/in/YOUR_LINKEDIN"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#666] hover:text-white transition-colors duration-200"
+            className={`${linkColor} transition-colors duration-200`}
             aria-label="LinkedIn"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -50,7 +54,7 @@ export default function Footer() {
             href="https://instagram.com/YOUR_INSTAGRAM"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#666] hover:text-white transition-colors duration-200"
+            className={`${linkColor} transition-colors duration-200`}
             aria-label="Instagram"
           >
             <svg
@@ -69,10 +73,19 @@ export default function Footer() {
             </svg>
           </a>
           <a
+            href="https://www.behance.net/lakshyamehta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${linkColor} transition-colors duration-200`}
+            aria-label="Behance"
+          >
+            <SiBehance size={16} />
+          </a>
+          <a
             href="https://github.com/YOUR_GITHUB"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#666] hover:text-white transition-colors duration-200"
+            className={`${linkColor} transition-colors duration-200`}
             aria-label="GitHub"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

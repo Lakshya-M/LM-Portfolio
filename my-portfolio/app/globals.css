@@ -209,3 +209,30 @@ body::before {
 .animate-pulse-border {
   animation: pulse-border 2.5s ease-in-out infinite;
 }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.pulse-red-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e50914;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.street-card img,
+.street-card > div > img {
+  filter: grayscale(100%);
+  transition: filter 300ms ease;
+}
+
+.street-card:hover img,
+.street-card:hover > div > img {
+  filter: grayscale(0%);
+}

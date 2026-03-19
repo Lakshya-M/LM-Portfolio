@@ -16,7 +16,6 @@ const engineerNav = [
 
 const photographyNav = [
   { label: "Concert", href: "/photography#concert" },
-  { label: "Artists", href: "/photography#artists" },
   { label: "Events", href: "/photography#events" },
   { label: "Contact", href: "/contact" },
 ]

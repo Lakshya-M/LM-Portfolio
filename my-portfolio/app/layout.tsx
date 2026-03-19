@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Lakshya Mehta — Engineer & Photographer",
   description:
     "Portfolio of Lakshya Mehta — IoT Engineer, Cloud Developer, and Concert Photographer based in India.",
+  icons: {
+    icon: "/images/Logo_New.png",
+  },
 }
 
 export default function RootLayout({

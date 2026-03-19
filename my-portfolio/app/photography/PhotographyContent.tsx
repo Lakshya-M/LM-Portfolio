@@ -4,11 +4,9 @@ import Image from "next/image"
 import Link from "next/link"
 import ScrollRow from "@/components/ScrollRow"
 import type { CardItem } from "@/components/ScrollRow"
-import { photoCategories, artists, djs, bands } from "@/data/photography"
+import { photoCategories } from "@/data/photography"
 
-/* ──────────────────────── Data ──────────────────────── */
-
-const tagPills = ["Concert", "Events", "Street", "Artists", "Product"]
+const tagPills = ["Concert", "Events", "Street", "Product"]
 
 const concertCategories = photoCategories.filter((c) => c.id === "concert" || c.id === "general-events")
 const moreCategories = photoCategories.filter((c) => ["street", "product", "others"].includes(c.id))
@@ -27,66 +25,29 @@ const moreCards: CardItem[] = moreCategories.map((c) => ({
   image: `/images/${c.id}.jpg`,
 }))
 
-const artistCards: CardItem[] = artists.map((a) => ({
-  id: a.id,
-  title: a.name,
-  tagline: a.event,
-  image: a.image,
-}))
-
-const djCards: CardItem[] = djs.map((d) => ({
-  id: d.id,
-  title: d.name,
-  tagline: d.event,
-  image: d.image,
-}))
-
-const bandCards: CardItem[] = bands.map((b) => ({
-  id: b.id,
-  title: b.name,
-  tagline: b.event,
-  image: b.image,
-}))
-
-const comingSoonCard: CardItem[] = [
-  {
-    id: "coming-soon",
-    title: "Coming Soon",
-    tagline: "Portfolio Growing",
-  },
-]
-
-/* ──────────────────────── Featured Work Strip Data ──────────────────────── */
-
 const featuredCategories = [
-  { name: "Concert", descriptor: "Live music energy captured in frame", bg: "#0f0f0f" },
-  { name: "Artists", descriptor: "Solo performers in their element", bg: "#111111" },
-  { name: "General Events", descriptor: "Gatherings worth remembering", bg: "#131313" },
-  { name: "Street", descriptor: "Candid moments from the city", bg: "#141414" },
-  { name: "Product", descriptor: "Clean, intentional visuals", bg: "#161616" },
-  { name: "Others", descriptor: "Everything else worth shooting", bg: "#181818" },
+  { name: "Concert", descriptor: "Live music energy captured in frame", bg: "#0f0f0f", dominant: true },
+  { name: "Artists", descriptor: "Solo performers in their element", bg: "#111111", dominant: false },
+  { name: "Events", descriptor: "Gatherings worth remembering", bg: "#131313", dominant: false },
+  { name: "Street", descriptor: "Candid moments from the city", bg: "#141414", dominant: false },
+  { name: "Product", descriptor: "Clean, intentional visuals", bg: "#161616", dominant: false },
+  { name: "Others", descriptor: "Everything else worth shooting", bg: "#181818", dominant: false },
 ]
-
-/* ──────────────────────── Stats ──────────────────────── */
 
 const stats = [
-  { value: "10+", label: "Artists Covered" },
-  { value: "VP", label: "Photography Club" },
+  { value: "40+", label: "Events" },
+  { value: "Pan India", label: "Coverage" },
   { value: "Concert", label: "& Event Focus" },
-  { value: "Delhi", label: "· Chennai" },
 ]
-
-/* ──────────────────────── Component ──────────────────────── */
 
 export default function PhotographyContent() {
   return (
     <>
-      {/* ═══════ SECTION A — HERO ═══════ */}
       <section className="relative w-full hero-film-grain" style={{ minHeight: "65vh" }}>
         <div className="absolute inset-0 bg-[#0a0a0a]">
           <div className="absolute right-0 top-20 bottom-8 w-full md:w-1/2 flex items-center justify-center px-10">
             <Image
-              src="/images/lm-logo-white.png"
+              src="/images/Logo_New.png"
               alt="Lakshya Mehta — Photographer"
               fill
               className="object-contain"
@@ -126,11 +87,13 @@ export default function PhotographyContent() {
             className="text-[#aaa] text-sm md:text-base max-w-lg mb-6"
             style={{ lineHeight: "1.9", letterSpacing: "0.02em" }}
           >
-            Concert and live event photographer capturing the raw energy of artists, DJs, and bands on stage.
-            Vice President of the Photography Club at VIT Chennai — building a visual portfolio across genres.
+            I shoot live events and concerts — the unscripted moments between performers
+            and their audience that don&apos;t happen twice. My work leans toward high contrast,
+            raw light, and the kind of frames that feel like you were there. I&apos;m building
+            toward full artist coverage, working directly with musicians to document their
+            performances and presence the way they deserve to be seen.
           </p>
 
-          {/* Editorial separator */}
           <div className="w-16 h-px bg-[#d4a843]/30 mb-6" />
 
           <div className="flex flex-wrap gap-3">
@@ -146,7 +109,6 @@ export default function PhotographyContent() {
         </div>
       </section>
 
-      {/* ═══════ SECTION B — FEATURED WORK STRIP ═══════ */}
       <section className="py-16 px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end gap-4 md:gap-0 md:-space-x-6 justify-center">
@@ -157,12 +119,10 @@ export default function PhotographyContent() {
         </div>
       </section>
 
-      {/* Section Divider */}
       <div className="max-w-6xl mx-auto px-8">
         <hr className="border-0 h-px bg-[#1a1a1a]" />
       </div>
 
-      {/* ═══════ SECTION C — STATS BAR ═══════ */}
       <section
         className="py-10 px-8"
         style={{
@@ -193,54 +153,13 @@ export default function PhotographyContent() {
         </div>
       </section>
 
-      {/* Section Divider */}
       <div className="max-w-6xl mx-auto px-8">
         <hr className="border-0 h-px bg-[#1a1a1a]" />
       </div>
 
-      {/* ═══════ SECTION D — SCROLL ROWS ═══════ */}
       <div className="py-8">
         <div id="concert">
-          <ScrollRow title="Concert & Live Events" items={concertCards} accentColor="#d4a843" disableHover />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-8">
-          <hr className="border-0 h-px bg-[#1a1a1a] my-2" />
-        </div>
-
-        <div id="artists">
-          <ScrollRow
-            title="Artists"
-            items={artistCards.length > 0 ? artistCards : comingSoonCard}
-            accentColor="#d4a843"
-            disableHover
-          />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-8">
-          <hr className="border-0 h-px bg-[#1a1a1a] my-2" />
-        </div>
-
-        <div id="djs">
-          <ScrollRow
-            title="DJs"
-            items={djCards.length > 0 ? djCards : comingSoonCard}
-            accentColor="#d4a843"
-            disableHover
-          />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-8">
-          <hr className="border-0 h-px bg-[#1a1a1a] my-2" />
-        </div>
-
-        <div id="bands">
-          <ScrollRow
-            title="Bands"
-            items={bandCards.length > 0 ? bandCards : comingSoonCard}
-            accentColor="#d4a843"
-            disableHover
-          />
+          <ScrollRow title="Artists" items={concertCards} accentColor="#d4a843" disableHover showGearLine />
         </div>
 
         <div className="max-w-6xl mx-auto px-8">
@@ -248,19 +167,16 @@ export default function PhotographyContent() {
         </div>
 
         <div id="more">
-          <ScrollRow title="More" items={moreCards} accentColor="#d4a843" disableHover />
+          <ScrollRow title="More" items={moreCards} accentColor="#d4a843" disableHover streetGreyscale />
         </div>
       </div>
 
-      {/* Section Divider */}
       <div className="max-w-6xl mx-auto px-8">
         <hr className="border-0 h-px bg-[#1a1a1a]" />
       </div>
 
-      {/* ═══════ SECTION E — ABOUT AS A PHOTOGRAPHER ═══════ */}
       <section className="py-20 px-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-20">
-          {/* Left — Pull quote */}
           <div className="flex-1 flex items-start">
             <blockquote
               className="text-white leading-none"
@@ -276,18 +192,12 @@ export default function PhotographyContent() {
             </blockquote>
           </div>
 
-          {/* Right — Text + CTA */}
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-[#aaa] text-sm leading-relaxed mb-4" style={{ letterSpacing: "0.02em" }}>
-              Specialising in concert and live event photography, I chase the moments between moments —
-              the anticipation before a drop, the blur of motion mid-performance.
-            </p>
-            <p className="text-[#aaa] text-sm leading-relaxed mb-4" style={{ letterSpacing: "0.02em" }}>
-              Based in Delhi, currently building a portfolio across artists, DJs, and cultural events.
-              VP of the Photography Club at VIT Chennai.
-            </p>
             <p className="text-[#aaa] text-sm leading-relaxed mb-8" style={{ letterSpacing: "0.02em" }}>
-              Available for concert coverage, artist portfolios, and live events.
+              Based in Delhi. Specialising in concert and live event photography —
+              chasing the moments between moments. The anticipation before a drop,
+              the blur of motion mid-performance. Available for concert coverage,
+              artist portfolios, and live events.
             </p>
             <Link
               href="/contact"
@@ -302,13 +212,11 @@ export default function PhotographyContent() {
   )
 }
 
-/* ──────────────────────── Featured Card Component ──────────────────────── */
-
 function FeaturedCard({
   category,
   index,
 }: {
-  category: { name: string; descriptor: string; bg: string }
+  category: { name: string; descriptor: string; bg: string; dominant: boolean }
   index: number
 }) {
   const [hovered, setHovered] = useState(false)
@@ -331,7 +239,6 @@ function FeaturedCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Faint oversized number */}
       <span
         className="absolute top-3 left-4 font-bold select-none"
         style={{
@@ -344,7 +251,6 @@ function FeaturedCard({
         {number}
       </span>
 
-      {/* Category name */}
       <div className="absolute inset-0 flex items-center justify-center px-4">
         <p
           className="text-white text-center text-xl"
@@ -357,7 +263,6 @@ function FeaturedCard({
         </p>
       </div>
 
-      {/* Descriptor — fades in on hover */}
       <div
         className="absolute bottom-12 left-0 right-0 px-4 text-center"
         style={{
@@ -369,7 +274,6 @@ function FeaturedCard({
         <p className="text-[#aaa] text-[10px] tracking-wider">{category.descriptor}</p>
       </div>
 
-      {/* Bottom accent border */}
       <div
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{

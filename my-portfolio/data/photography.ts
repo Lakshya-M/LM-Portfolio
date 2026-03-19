@@ -22,8 +22,8 @@ export const photoCategories: PhotoCategory[] = [
   },
   {
     id: "general-events",
-    title: "General Events",
-    description: "Festivals, college events, and gatherings worth remembering.",
+    title: "Events",
+    description: "Festivals, cultural events, and gatherings worth remembering.",
   },
   {
     id: "street",

@@ -21,9 +21,11 @@ interface ScrollRowProps {
   accentColor?: string
   cardSize?: "sm" | "default"
   disableHover?: boolean
+  showGearLine?: boolean
+  streetGreyscale?: boolean
 }
 
-export default function ScrollRow({ title, items, accentColor = "#e50914", cardSize = "default", disableHover = false }: ScrollRowProps) {
+export default function ScrollRow({ title, items, accentColor = "#e50914", cardSize = "default", disableHover = false, showGearLine = false, streetGreyscale = false }: ScrollRowProps) {
   const rowRef = useRef<HTMLDivElement>(null)
 
   const scroll = (dir: "left" | "right") => {
@@ -64,7 +66,16 @@ export default function ScrollRow({ title, items, accentColor = "#e50914", cardS
           }}
         >
           {items.map((item) => (
-            <Card key={item.id} item={item} accentColor={accentColor} containerRef={rowRef} cardSize={cardSize} disableHover={disableHover} />
+            <Card
+              key={item.id}
+              item={item}
+              accentColor={accentColor}
+              containerRef={rowRef}
+              cardSize={cardSize}
+              disableHover={disableHover}
+              showGearLine={showGearLine}
+              streetGreyscale={streetGreyscale && item.id === "street"}
+            />
           ))}
         </div>
         <button
@@ -87,12 +98,16 @@ function Card({
   containerRef,
   cardSize = "default",
   disableHover = false,
+  showGearLine = false,
+  streetGreyscale = false,
 }: {
   item: CardItem
   accentColor: string
   containerRef: React.RefObject<HTMLDivElement | null>
   cardSize?: "sm" | "default"
   disableHover?: boolean
+  showGearLine?: boolean
+  streetGreyscale?: boolean
 }) {
   const [hovered, setHovered] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -119,18 +134,18 @@ function Card({
     return "center top"
   }, [containerRef])
 
+  const streetClass = streetGreyscale ? "street-card" : ""
+
   return (
-    /* Fixed-size wrapper — this participates in the flex row and NEVER changes size */
     <div
       ref={wrapperRef}
-      className="flex-shrink-0"
+      className={`flex-shrink-0 ${streetClass}`}
       style={{
         width: baseW,
         height: baseH,
         position: "relative",
       }}
     >
-      {/* The actual card — absolutely positioned so it can expand without touching siblings */}
       <div
         className="rounded-sm bg-[#141414] border border-[#222] cursor-pointer"
         style={{
@@ -151,7 +166,6 @@ function Card({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        {/* DEFAULT STATE — thumbnail with title overlay */}
         <div
           className="absolute top-0 left-0 right-0"
           style={{
@@ -183,7 +197,6 @@ function Card({
           </div>
         </div>
 
-        {/* HOVERED STATE — solid black with info in red & white */}
         <div
           className="absolute inset-0 bg-black flex flex-col overflow-hidden"
           style={{
@@ -192,10 +205,7 @@ function Card({
             pointerEvents: effectiveHover ? "auto" : "none",
           }}
         >
-          {/* Top accent line */}
           <div className="h-[2px] flex-shrink-0" style={{ background: accentColor }} />
-
-          {/* Scrollable content */}
           <div className="flex-1 overflow-y-auto p-3 flex flex-col justify-between gap-2">
             <div>
               <p className="text-white text-[13px] font-bold leading-tight">{item.title}</p>
@@ -223,7 +233,6 @@ function Card({
                 </div>
               )}
             </div>
-            {/* Tags at bottom */}
             {item.tags && item.tags.length > 0 && (
               <div className="flex flex-wrap gap-1 flex-shrink-0">
                 {item.tags.slice(0, 5).map((tag) => (
@@ -236,6 +245,11 @@ function Card({
                   </span>
                 ))}
               </div>
+            )}
+            {showGearLine && (
+              <p className="text-[#555] text-[9px] italic mt-auto pt-1 flex-shrink-0">
+                Shot on — Sony A6700 · 28-75mm f/2.8
+              </p>
             )}
           </div>
         </div>
