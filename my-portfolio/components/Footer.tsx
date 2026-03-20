@@ -39,7 +39,7 @@ export default function Footer({ isLanding = false }: { isLanding?: boolean }) {
         </div>
         <div className="flex items-center gap-5">
           <a
-            href="https://linkedin.com/in/YOUR_LINKEDIN"
+            href="https://www.linkedin.com/in/lakshya-mehta-07aug4/"
             target="_blank"
             rel="noopener noreferrer"
             className={`${linkColor} transition-colors duration-200`}
@@ -51,7 +51,7 @@ export default function Footer({ isLanding = false }: { isLanding?: boolean }) {
             </svg>
           </a>
           <a
-            href="https://instagram.com/YOUR_INSTAGRAM"
+            href="https://www.instagram.com/lakshyamehtavisuals/"
             target="_blank"
             rel="noopener noreferrer"
             className={`${linkColor} transition-colors duration-200`}
@@ -73,7 +73,7 @@ export default function Footer({ isLanding = false }: { isLanding?: boolean }) {
             </svg>
           </a>
           <a
-            href="https://www.behance.net/lakshyamehta"
+            href="https://www.behance.net/lakshya_mehta"
             target="_blank"
             rel="noopener noreferrer"
             className={`${linkColor} transition-colors duration-200`}
@@ -82,7 +82,7 @@ export default function Footer({ isLanding = false }: { isLanding?: boolean }) {
             <SiBehance size={16} />
           </a>
           <a
-            href="https://github.com/YOUR_GITHUB"
+            href="https://github.com/Lakshya-M"
             target="_blank"
             rel="noopener noreferrer"
             className={`${linkColor} transition-colors duration-200`}

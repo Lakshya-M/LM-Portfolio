@@ -26,12 +26,12 @@ const moreCards: CardItem[] = moreCategories.map((c) => ({
 }))
 
 const featuredCategories = [
-  { name: "Concert", descriptor: "Live music energy captured in frame", bg: "#0f0f0f", dominant: true },
-  { name: "Artists", descriptor: "Solo performers in their element", bg: "#111111", dominant: false },
-  { name: "Events", descriptor: "Gatherings worth remembering", bg: "#131313", dominant: false },
-  { name: "Street", descriptor: "Candid moments from the city", bg: "#141414", dominant: false },
-  { name: "Product", descriptor: "Clean, intentional visuals", bg: "#161616", dominant: false },
-  { name: "Others", descriptor: "Everything else worth shooting", bg: "#181818", dominant: false },
+  { name: "Concert", descriptor: "Live music energy captured in frame", bg: "#0f0f0f", image: "/images/01-Concerts.jpg", dominant: true },
+  { name: "Artists", descriptor: "Solo performers in their element", bg: "#111111", image: "/images/02-Artist.jpg", dominant: false },
+  { name: "Events", descriptor: "Gatherings worth remembering", bg: "#131313", image: "/images/03-Events.jpg", dominant: false },
+  { name: "Street", descriptor: "Candid moments from the city", bg: "#141414", image: "/images/04-Street.jpg", dominant: false },
+  { name: "Product", descriptor: "Clean, intentional visuals", bg: "#161616", image: "/images/05-Product.jpg", dominant: false },
+  { name: "Others", descriptor: "Everything else worth shooting", bg: "#181818", image: "/images/06-Others.jpg", dominant: false },
 ]
 
 const stats = [
@@ -216,7 +216,7 @@ function FeaturedCard({
   category,
   index,
 }: {
-  category: { name: string; descriptor: string; bg: string; dominant: boolean }
+  category: { name: string; descriptor: string; bg: string; image?: string; dominant: boolean }
   index: number
 }) {
   const [hovered, setHovered] = useState(false)
@@ -224,7 +224,7 @@ function FeaturedCard({
 
   return (
     <div
-      className="relative rounded-md overflow-hidden cursor-pointer w-full md:w-44 flex-shrink-0"
+      className="relative rounded-md overflow-hidden cursor-pointer w-full md:w-44 flex-shrink-0 group"
       style={{
         aspectRatio: "2/3",
         backgroundColor: category.bg,
@@ -239,19 +239,36 @@ function FeaturedCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      <div className="absolute inset-0 z-0 bg-black">
+        {category.image && (
+          <Image
+            src={category.image}
+            alt={category.name}
+            fill
+            className="object-cover transition-transform duration-700 ease-out"
+            style={{
+              transform: hovered ? "scale(1.05)" : "scale(1)",
+              opacity: hovered ? 0.6 : 0.35,
+            }}
+            sizes="(max-width: 768px) 100vw, 20vw"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40 pointer-events-none" />
+      </div>
+
       <span
-        className="absolute top-3 left-4 font-bold select-none"
+        className="absolute top-3 left-4 font-bold select-none z-10 drop-shadow-md"
         style={{
           fontFamily: "var(--font-bebas), sans-serif",
           fontSize: "120px",
           lineHeight: 1,
-          color: "rgba(212, 168, 67, 0.08)",
+          color: "rgba(212, 168, 67, 0.12)",
         }}
       >
         {number}
       </span>
 
-      <div className="absolute inset-0 flex items-center justify-center px-4">
+      <div className="absolute inset-0 flex items-center justify-center px-4 z-10 drop-shadow-lg">
         <p
           className="text-white text-center text-xl"
           style={{
@@ -264,18 +281,18 @@ function FeaturedCard({
       </div>
 
       <div
-        className="absolute bottom-12 left-0 right-0 px-4 text-center"
+        className="absolute bottom-12 left-0 right-0 px-4 text-center z-10"
         style={{
           opacity: hovered ? 1 : 0,
           transform: hovered ? "translateY(0)" : "translateY(6px)",
           transition: "opacity 0.3s ease, transform 0.3s ease",
         }}
       >
-        <p className="text-[#aaa] text-[10px] tracking-wider">{category.descriptor}</p>
+        <p className="text-[#ccc] text-[10px] tracking-wider drop-shadow-md">{category.descriptor}</p>
       </div>
 
       <div
-        className="absolute bottom-0 left-0 right-0 h-px"
+        className="absolute bottom-0 left-0 right-0 h-px z-10"
         style={{
           background: "#d4a843",
           opacity: hovered ? 0.6 : 0.15,
