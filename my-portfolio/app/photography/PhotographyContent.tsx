@@ -4,18 +4,17 @@ import Image from "next/image"
 import Link from "next/link"
 import ScrollRow from "@/components/ScrollRow"
 import type { CardItem } from "@/components/ScrollRow"
-import { photoCategories } from "@/data/photography"
+import { photoCategories, artists } from "@/data/photography"
 
 const tagPills = ["Concert", "Events", "Street", "Product"]
 
-const concertCategories = photoCategories.filter((c) => c.id === "concert" || c.id === "general-events")
 const moreCategories = photoCategories.filter((c) => ["street", "product", "others"].includes(c.id))
 
-const concertCards: CardItem[] = concertCategories.map((c) => ({
-  id: c.id,
-  title: c.title,
-  tagline: c.description,
-  image: `/images/${c.id}.jpg`,
+const artistCards: CardItem[] = artists.map((a) => ({
+  id: a.id,
+  title: a.name,
+  tagline: a.event || "Artist",
+  image: a.image || `/images/02-Artist.jpg`,
 }))
 
 const moreCards: CardItem[] = moreCategories.map((c) => ({
@@ -159,7 +158,7 @@ export default function PhotographyContent() {
 
       <div className="py-8">
         <div id="concert">
-          <ScrollRow title="Artists" items={concertCards} accentColor="#d4a843" disableHover showGearLine />
+          <ScrollRow title="Artists" items={artistCards} accentColor="#d4a843" disableHover showGearLine />
         </div>
 
         <div className="max-w-6xl mx-auto px-8">

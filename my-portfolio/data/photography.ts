@@ -43,7 +43,17 @@ export const photoCategories: PhotoCategory[] = [
 ]
 
 export const artists: Artist[] = [
-  // { id: "artist-1", name: "Artist Name", type: "artist", event: "Event Name", image: "/images/artist-1.jpg" }
+  { id: "raftaar", name: "Raftaar", type: "artist", event: "Live Concert", image: "/images/Raftaar.jpg" },
+  { id: "aastha-gill", name: "Aastha Gill", type: "artist", event: "Live Concert", image: "/images/Aastha Gill.jpg" },
+  { id: "armaan-malik", name: "Armaan Malik", type: "artist", event: "Live Concert", image: "/images/Armaan Malik.jpg" },
+  { id: "gini", name: "Gini", type: "artist", event: "Live Event", image: "/images/Gini.jpg" },
+  { id: "progressive-brothers", name: "Progressive Brothers", type: "dj", event: "Live Event", image: "/images/Progressive Brothers.jpg" },
+  { id: "camilla-lynkx", name: "Camilla Lynkx", type: "artist", event: "Live Event", image: "/images/Camilla Lynkx.jpg" },
+  { id: "ankit-tiwari", name: "Ankit Tiwari", type: "artist", event: "Live Concert", image: "/images/Ankit Tiwari.jpg" },
+  { id: "makka-band", name: "Makka Band", type: "band", event: "Live Concert", image: "/images/Makka Band.jpg" },
+  { id: "priyanka-nk", name: "Priyanka NK", type: "artist", event: "Live Event", image: "/images/Priyanka NK.jpg" },
+  { id: "santosh-n", name: "Santosh N", type: "artist", event: "Live Event", image: "/images/Santosh N.jpg" },
+  { id: "pineapple-express", name: "Pineapple Express", type: "band", event: "Live Concert", image: "/images/Pineapple Express.jpg" },
 ]
 
 export const djs: Artist[] = [
