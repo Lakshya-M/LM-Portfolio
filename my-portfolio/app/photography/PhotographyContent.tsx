@@ -14,23 +14,24 @@ const artistCards: CardItem[] = artists.map((a) => ({
   id: a.id,
   title: a.name,
   tagline: a.event || "Artist",
-  image: a.image || `/images/02-Artist.jpg`,
+  image: a.image || `/images/02-Artist.webp`,
+  href: a.behanceEmbed ? `/photography/artist/${a.id}` : undefined,
 }))
 
 const moreCards: CardItem[] = moreCategories.map((c) => ({
   id: c.id,
   title: c.title,
   tagline: c.description,
-  image: `/images/${c.id}.jpg`,
+  image: `/images/${c.id}.webp`,
 }))
 
 const featuredCategories = [
-  { name: "Concert", descriptor: "Live music energy captured in frame", bg: "#0f0f0f", image: "/images/01-Concerts.jpg", dominant: true },
-  { name: "Artists", descriptor: "Solo performers in their element", bg: "#111111", image: "/images/02-Artist.jpg", dominant: false },
-  { name: "Events", descriptor: "Gatherings worth remembering", bg: "#131313", image: "/images/03-Events.jpg", dominant: false },
-  { name: "Street", descriptor: "Candid moments from the city", bg: "#141414", image: "/images/04-Street.jpg", dominant: false },
-  { name: "Product", descriptor: "Clean, intentional visuals", bg: "#161616", image: "/images/05-Product.jpg", dominant: false },
-  { name: "Others", descriptor: "Everything else worth shooting", bg: "#181818", image: "/images/06-Others.jpg", dominant: false },
+  { name: "Concert", descriptor: "Live music energy captured in frame", bg: "#0f0f0f", image: "/images/01-Concerts.webp", dominant: true },
+  { name: "Artists", descriptor: "Solo performers in their element", bg: "#111111", image: "/images/02-Artist.webp", dominant: false },
+  { name: "Events", descriptor: "Gatherings worth remembering", bg: "#131313", image: "/images/03-Events.webp", dominant: false },
+  { name: "Street", descriptor: "Candid moments from the city", bg: "#141414", image: "/images/04-Street.webp", dominant: false },
+  { name: "Product", descriptor: "Clean, intentional visuals", bg: "#161616", image: "/images/05-Product.webp", dominant: false },
+  { name: "Others", descriptor: "Everything else worth shooting", bg: "#181818", image: "/images/06-Others.webp", dominant: false },
 ]
 
 const stats = [

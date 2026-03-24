@@ -1,6 +1,7 @@
 "use client"
 import { useRef, useState, useCallback, type ReactNode } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export interface CardItem {
   id: string
@@ -13,6 +14,7 @@ export interface CardItem {
   tags?: string[]
   image?: string
   icon?: ReactNode
+  href?: string
 }
 
 interface ScrollRowProps {
@@ -111,6 +113,7 @@ function Card({
 }) {
   const [hovered, setHovered] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   const effectiveHover = disableHover ? false : hovered
 
@@ -147,7 +150,12 @@ function Card({
       }}
     >
       <div
-        className="rounded-sm bg-[#141414] border border-[#222] cursor-pointer"
+        className={`rounded-sm bg-[#141414] border border-[#222] ${item.href ? "cursor-pointer" : ""}`}
+        onClick={() => {
+          if (item.href) {
+            router.push(item.href)
+          }
+        }}
         style={{
           position: "absolute",
           top: 0,
